@@ -4,8 +4,9 @@ class Tablero {
     var limit: Int
     var queens = [Reina]()
     init(limit: Int) {
-        self.limit = limit
+    self.limit = limit
     }
+    
     func Posicion (atRow row: Int, col: Int) -> Bool { // Checa la posicion
         for queen in queens {
             if queen.row == row { return false }
@@ -13,6 +14,7 @@ class Tablero {
             if abs(queen.row-row) == abs(queen.col-col) { return false }
         }
         return true
+        
     }
     func Busqueda(atRow row: Int) {
         if queens.count < limit {
@@ -29,9 +31,11 @@ class Tablero {
             }
         }
     }
+    
     func Jugar() {
         Busqueda(atRow: 0) //inicio del juego
     }
+    
     func output() -> String {
         var s = ""
         for q in queens {
@@ -40,6 +44,7 @@ class Tablero {
         return s
     }
 }
+
 struct Reina {
     var row: Int
     var col: Int
